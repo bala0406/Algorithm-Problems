@@ -20,6 +20,48 @@ long largestRectangle(std::vector<int> heights) {
     return maxArea;
 }
 
+
+//O(n) - only one iteration - efficient
+long largestRectangle(std::vector<int> heights)
+{
+
+    std::stack<int> stack;
+    int maxArea = 0;
+    int indexOfCurrentMax = 0;
+    int currentArea = 0;
+
+    int i = 0;
+    while(i < heights.size())
+    {
+        if(stack.empty() || heights[stack.top()] <= heights[i])
+        {
+            stack.push(i);
+            i++;
+        }
+        else
+        {
+            indexOfCurrentMax = stack.top();
+            stack.pop();
+            currentArea = heights[indexOfCurrentMax] * (stack.empty() ? (i) : ((i - 1 - stack.top())));
+            if(currentArea > maxArea)
+            {
+                maxArea = currentArea;
+            }
+        }
+    }
+    while (stack.empty() == false)
+       {
+           indexOfCurrentMax = stack.top();
+           stack.pop();
+           currentArea = heights[indexOfCurrentMax] * (stack.empty() ? (i) : ((i - 1 - stack.top())));
+           if(currentArea > maxArea)
+           {
+               maxArea = currentArea;
+           }
+       }  
+   return maxArea;
+}
+
 int main()
 {
     std::vector<int> heights{1,2,3,4,5};
