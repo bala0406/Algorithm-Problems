@@ -12,7 +12,9 @@ def largestRectangle(heights : list):
 
     return maxArea
 
+#Iterative - O(n) - efficient  ----> refer cpp version in the repository
 
+#test
 print(largestRectangle([2,1,5,6,2,3]))
 
 
