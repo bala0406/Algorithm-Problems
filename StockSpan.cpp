@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <stack>
+#include <algorithm>
 
 //iterative - o(n^2) - not efficient
 void stockSpan(std::vector<int> stockPrice)
@@ -25,6 +27,43 @@ void stockSpan(std::vector<int> stockPrice)
     }
 }
 
+//iterative - o(n) - efficient
+void stockSpan(std::vector<int> stockPrice)
+{
+    std::stack<int> stack;
+    stack.push(0);
+    int top;
+    int maxSpan = 1;
+    std::vector<int> spans;
+    spans.push_back(1);
+
+    for (int i = 1; i < stockPrice.size(); i++)
+    {
+        int currentSpan = 1;
+        while (!stack.empty() && stockPrice[i] > stockPrice[stack.top()])
+        {
+            stack.pop();
+        }
+        currentSpan = i - (!stack.empty() ? stack.top() : -1);
+        stack.push(i);
+        spans.push_back(currentSpan);
+        maxSpan = std::max(maxSpan, currentSpan);
+    }
+
+    //printing max value
+    std::cout << "\nmax:"
+              << maxSpan
+              << "\n";
+
+    std::cout << "---------------"
+              << "\n"
+              << "span values:\n";
+    //printing all span values
+    for (int i = 0; i < spans.size(); i++)
+    {
+        std::cout << spans[i] << "\n";
+    }
+}
 
 
 int main()
