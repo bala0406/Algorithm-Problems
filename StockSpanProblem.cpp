@@ -18,6 +18,10 @@ void stockSpan(std::vector<int> stockPrice)
             {
                 stocks[i]++;
             }
+            else
+            {
+                break;
+            }
         }
     }
     std::cout << "\n" << "---------" << "\n";
