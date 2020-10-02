@@ -53,7 +53,7 @@ vector<int> waiter(vector<int> numbers, int iterationCount)
     {
         while (!A[i - 1].empty())
         {
-            if (A[i - 1].top() % primeNumbers[i - 1] == 0)
+            if (A[i - 1].top() % primeNumbers[i - 1] == 0)     //getIthPrime(i) can also be used
             {
                 B[i - 1].push(A[i - 1].top());
                 A[i - 1].pop();
