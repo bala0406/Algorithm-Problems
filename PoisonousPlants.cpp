@@ -33,6 +33,48 @@ int poisonousPlants(std::vector<int> plants)
 	return days;	
 }
 
+//The below method is the efficient one which of O(n)
+class Plant
+{
+public:
+    int value;
+    int days;
+
+    Plant(int value, int days)
+    {
+        this->value = value;
+        this->days = days;
+    }
+};
+
+int poisonousPlants(vector<int> plants) {
+
+   int maxDays = 0;
+    std::stack<Plant> stack;
+    for (int plant : plants)
+    {
+        int daysAlive = 0;
+        while (!stack.empty() && plant <= stack.top().value)
+        {
+            int days = stack.top().days;
+            stack.pop();
+            daysAlive = std::max(daysAlive, days);
+        }
+
+        if (stack.empty())
+        {
+            daysAlive = 0;
+        }
+        else
+        {
+            daysAlive++;
+        }
+        maxDays = std::max(daysAlive, maxDays);
+        stack.push(Plant(plant, daysAlive));
+    }
+    return maxDays;  
+}
+
 int main()
 {
 	int n;
