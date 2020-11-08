@@ -3,6 +3,10 @@
 #include<stack>
 #include<algorithm>
 
+//inefficient - o(n^2)
+//--Typical brute force method
+//--Calculate the minimum numbers and evaluate the expression for each iteration
+
 //efficient - O(n)
 int andXorOr(std::vector<int> numbers)
 {
