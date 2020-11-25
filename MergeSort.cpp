@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+
 
 //merging left and right array into a single array
 std::vector<int> merge(std::vector<int> leftArray, std::vector<int> rightArray, std::vector<int> array)
