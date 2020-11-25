@@ -68,8 +68,8 @@ void mergeSort(std::vector<int> &array)
 		rightArray[i - mid] = array[i];
 	}
 
-	mergeSort(leftArray);						 //recursively dividing left array
-	mergeSort(rightArray);						 //recursively dividing right array
+	mergeSort(leftArray);			     //recursively dividing left array
+	mergeSort(rightArray);			     //recursively dividing right array
 	array = merge(leftArray, rightArray, array); // sorting and merging left and right array back to the original array
 }
 
