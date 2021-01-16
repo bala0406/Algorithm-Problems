@@ -4,7 +4,7 @@
 
 //There is also a solution for O(n^3) which is kinda naive
 
-brute force approach - O(n^2)
+//brute force approach - O(n^2)
 long maximumSubArray(std::vector<long> inputArray, long modValue)
 {
     long maxValue = LONG_MIN;
