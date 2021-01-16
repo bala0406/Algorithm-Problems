@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-There is also a solution for O(n^3) which is kinda naive
+//There is also a solution for O(n^3) which is kinda naive
 
 brute force approach - O(n^2)
 long maximumSubArray(std::vector<long> inputArray, long modValue)
