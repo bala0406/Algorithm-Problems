@@ -92,6 +92,34 @@ public:
         }
         return std::max(height(root->left), height(root->right)) + 1;
     }
+    
+    void levelOrderTraversal(BSTNode *root)
+    {
+        if (root == nullptr)
+        {
+            return;
+        }
+
+        std::queue<BSTNode *> queue;
+        queue.push(root);
+
+        while (!queue.empty())
+        {
+            BSTNode *current = queue.front();
+            std::cout << current->data << "\t";
+
+            if (current->left != nullptr)
+            {
+                queue.push(current->left);
+            }
+
+            if (current->right != nullptr)
+            {
+                queue.push(current->right);
+            }
+            queue.pop();
+        }
+    }
 };
 
 int main()
